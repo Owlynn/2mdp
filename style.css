@@ -1,0 +1,27 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    background-color: green;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+        
+}
+
+#main {
+    background-color: #6db86d;
+    width: 100%;
+    height: 600px;
+    display: inline;
+    
+}
+
+.trigger {
+    width: 10%;
+    height: 10%;
+    background-color: #cee67b;
+    margin: 1%;
+}
