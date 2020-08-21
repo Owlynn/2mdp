@@ -46,7 +46,16 @@ console.log(document.getElementsByClassName("trigger"));
 const pwet =  function(event) {alert ("pwet")} ;
 
 let eventTarget = document.getElementById("bouton"); //premier bloc de la liste uniquement
-let eventClass = document.getElementsByClassName("trigger"); // tous les blocs/boutons
+let eventClass = document.getElementsByClassName("trigger"); // tous les blocs/boutons dans un tableau
 
-eventTarget.onclick = pwet ; //fonctionne
-eventClass.onlick =  pwet ; // ne fonctionne pas.
+
+eventTarget.onclick = pwet ; //fonctionne Cas 1
+const test = function (elem) {
+  console.log(elem);
+  elem.onclick = pwet;
+
+} ;
+
+Array.from(eventClass).forEach(test); // convertit en vrai tableau
+
+
