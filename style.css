@@ -24,8 +24,8 @@ header, footer {
 }
 
 .trigger {
-    width: 10%;
-    height: 10%;
+    width:100px;
+    height: 100px;
     background-color: #cee67b;
     margin: 1%;
 }

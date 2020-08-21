@@ -1,3 +1,4 @@
+// HANDLEBARS CONTEXT 
 const context = {
     titre:'test',
     samples: [
@@ -12,28 +13,40 @@ const context = {
           
         },
         {
-          title: 'Qui va se faire buter',
+          title: 'Qui va se ',
           url: 'https://www.donnerdelavoix.fr/test/test.mp3',
           
         },
         {
-          title: 'Ma femme a tous vos livres',
+          title: 'Une ligne',
           url: 'https://www.donnerdelavoix.fr/test/test.mp3',
           
         },
         {
-          title: 'vous êtes très percepuiscasse',
+          title: 'one line',
           url: 'https://www.donnerdelavoix.fr/test/test.mp3',
           
         } 
     ]
 };
 
+ // HANDLEBARS SETUP
+
 const templateElement = document.getElementById('hb');
-console.log(templateElement);
 const templateSource = document.getElementById('hb').innerHTML;
 const template = Handlebars.compile(templateSource);
 const compiledHtml= template(context);
 
-console.log(document.getElementById('main'));
+    // BLOCS DE SAMPLES VIA HANDLEBARS
+
 document.getElementById('blocs').innerHTML = compiledHtml;
+
+// BOUTONS INTERACTIFS
+console.log(document.getElementsByClassName("trigger"));
+const pwet =  function(event) {alert ("pwet")} ;
+
+let eventTarget = document.getElementById("bouton"); //premier bloc de la liste uniquement
+let eventClass = document.getElementsByClassName("trigger"); // tous les blocs/boutons
+
+eventTarget.onclick = pwet ; //fonctionne
+eventClass.onlick =  pwet ; // ne fonctionne pas.
