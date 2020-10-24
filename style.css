@@ -1,5 +1,6 @@
 * {
-    margin: none;
+    margin: 0;
+    padding: 0;
 }
 
 body{
@@ -12,20 +13,52 @@ header, footer {
     width: 100%;
     display: flex;
     justify-content: center;
-        
+    margin: 0;
 }
 
 #main {
     background-color: #6db86d;
-    width: 100%;
+    /* width: 100%; */
     height: 600px;
-    display: inline;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
     
 }
 
-.trigger {
+.boutons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width:100px;
     height: 100px;
     background-color: #cee67b;
-    margin: 1%;
+    margin: 5px;
+    border: 2px solid olive ;
+    border-radius: 15px;
+}
+
+.boutons:hover{
+    background-color: #9caf59;
+}
+
+#blocs{
+    display: flex; 
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+h1{
+    font-size: 6em;
+    font-family: 'Shadows Into Light', cursive;
+    color: rgb(172, 221, 188);
+}
+
+h2{
+    font-family: 'Shadows Into Light', cursive;
+    color: rgb(255, 255, 255);
+    font-size: 2em;
+    text-align: center;
 }
