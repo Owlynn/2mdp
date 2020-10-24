@@ -1,0 +1,16 @@
+.boutons {
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    border-radius: 10px;
+    line-height:100px;
+    text-align: center;
+}
+
+.bouton:hover {
+    background-color: azure;
+}
+
+.bouton:active {
+    background-color: blue;
+}
