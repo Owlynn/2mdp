@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="skeleton.css">
     <!-- HANDLEBARS INSTALL -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
     
@@ -14,7 +14,7 @@
     <script id="hb" type="text/x-handlebars-template">
         {{#each samples}}
          <audio id = "son{{@index}}-player" src={{this.url}}></audio>
-        <div class = "boutons" id="son{{@index}}"> {{this.title}} </div>
+        <button class = "boutons" id="son{{@index}}"> {{this.title}} </button>
         
         {{/each}}
     </script>
@@ -23,22 +23,26 @@
     <script async src="script.js"></script>
     
 </head>
-
 <body>
-    
-    <header>
-        <!-- <div id="imgheader"><img src="img/header.png" alt="header"></div> -->
-        <div><h1>Les deux minutes du peuple</h1>
-        </div>
-    </header>
-    
-    <section id="main">
-        <div id="blocs"></div>
-    </section>
-    
-    <footer>
-        <h2>Cliquez sur un carré pour lancer le sample !</h2>
-    </footer>
-    
+    <div class="container">
+
+        <div class="row">
+            <div id="deuxmin" class="five columns">
+                <h1>Les deux minutes du peuple</h1>
+                <p> Cliquez sur un carré pour lancer le sample !</p>
+            </div>
+
+        
+            <div class="seven columns">
+                <div id="blocs"></div>
+            </div>
+        
+              
+
+           
+        </div>        
+    </div>
+
+
 </body>
 </html>
