@@ -1,49 +1,45 @@
-* {
-    margin:0;
-}
-.boutons {
-    background-color: rgb(196, 243, 245)
-    margin: 5%;
+button {
+    background-color: rgb(196, 243, 245);
+    margin: 1px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
    
 }
 
-.boutons:hover{
+button:hover{
     background-color: cadetblue;
 }
 
 #blocs{
-    padding-top: 10%;
-    overflow: scroll;
-    height: 800px;
-    background-color: rgb(188, 223, 224);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-
+    padding: 5%;
+    overflow: scroll;
+    height: 800px;
+    background-color: rgb(188, 223, 224);
+    
 }
 
-#deuxmin {
-    padding-top: 30%;
-    padding-left: 10%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-body{
-    background-color: white;
-}
-
-.container{
-    border: solid grey 2px;
+.row {
     background-color: cadetblue;
 }
 
-h1{
-    font-size: 4rem;
-    color: white;
+#deuxmin {
+   padding-top: 15%;
+   padding-left: 5%;;
 }
 
-p{
-    font-size: 2rem;
+h1{
+    font-size: 6rem;
+    color: white ;
+    
+}
+
+p {
+    font-size: 3rem;
+    color: rgb(188, 223, 224);
 }
