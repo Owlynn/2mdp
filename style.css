@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 button {
     background-color: rgb(196, 243, 245);
     margin: 1px;
@@ -6,8 +12,6 @@ button {
     display: flex;
     justify-content: center;
     padding-top: 3%;
-
-   
 }
 
 button:hover{
@@ -20,7 +24,7 @@ button:hover{
     justify-content: space-around;
     padding: 5%;
     overflow: scroll;
-    height: 800px;
+    height: 100%;
     background-color: rgb(188, 223, 224);
     overflow-x: hidden;
     
@@ -28,13 +32,17 @@ button:hover{
 
 .row {
     background-color: cadetblue;
-    height: 100%;
+    height: 100vh;
 }
 
 #deuxmin {
-   padding-top: 15%;
-   padding-left: 5%;;
+   padding: 0 5%;
+   margin: 0 auto;
    text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   height: 100%;
 }
 
 h1{
