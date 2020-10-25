@@ -318,26 +318,6 @@ const samples = [
     {
       title: 'one line',
       url: 'https://www.donnerdelavoix.fr/test/test.mp3',
-    },
-    {
-      title: 'one line',
-      url: 'https://www.donnerdelavoix.fr/test/test.mp3',
-    },
-    {
-      title: 'one line',
-      url: 'https://www.donnerdelavoix.fr/test/test.mp3',
-    },
-    {
-      title: 'one line',
-      url: 'https://www.donnerdelavoix.fr/test/test.mp3',
-    },
-    {
-      title: 'one line',
-      url: 'https://www.donnerdelavoix.fr/test/test.mp3',
-    },
-    {
-      title: 'one line',
-      url: 'https://www.donnerdelavoix.fr/test/test.mp3',
     }
     
 ];

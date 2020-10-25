@@ -6,6 +6,7 @@ button {
     display: flex;
     justify-content: center;
     padding-top: 3%;
+
    
 }
 
@@ -31,6 +32,7 @@ button:hover{
 #deuxmin {
    padding-top: 15%;
    padding-left: 5%;;
+   text-align: center;
 }
 
 h1{
