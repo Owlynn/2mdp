@@ -25,6 +25,7 @@ boutons.forEach ( function (currentButton){
     if (currentPlayer.paused) {
       currentPlayer.play();
     } else if (!currentPlayer.paused) {
+      currentPlayer.currentTime = 0; // permet de recommencer la lecture du début
       currentPlayer.pause();
     }
       }
