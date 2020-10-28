@@ -31,5 +31,26 @@ const samples = [
     },
     {
       title: 'ça va faire pouf',
-    }    
+    },
+    {
+      title: 'une silhouette',
+    },
+    {
+      title: 'je lui chantais du jazz',
+    },
+    {
+      title: 'les galippeurs',
+    } ,
+    {
+      title: 'tumbleweeds',
+    } ,  
+    {
+      title: 'Shit God Damn',
+    },   
+    {
+      title: 'mary is a girl',
+    },
+    {
+      title: 'rire 1',
+    }   
 ];
