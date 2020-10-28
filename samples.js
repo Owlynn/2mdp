@@ -1,19 +1,15 @@
 const samples = [
     {
-      title: 'Kapoué',
-      url: 'https://www.donnerdelavoix.fr/test/test.mp3',
+      title: 'Kapouey',
     },
     {
-      title: 'Columbo',
-      url: 'https://www.auboutdufil.com/get.php?fla=https://archive.org/download/cjbeards-fire-and-thunder/Cjbeards-FireAndThunder.mp3',
+      title: 'douze-lefaut',
     },
     {
-      title: 'Qui va se ',
-      url: 'https://www.donnerdelavoix.fr/test/test.mp3',
+      title: 'fruits-et-lugubres',
     },
     {
-      title: 'Une ligne',
-      url: 'https://www.donnerdelavoix.fr/test/test.mp3',
+      title: 'hippo-potheque',
     },
     {
       title: 'sample',

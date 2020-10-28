@@ -16,10 +16,6 @@ const boutons = Array.from(document.getElementsByClassName("boutons"));
 // LANCE LA LECTURE QUAND ON CLIQUE SUR UN SAMPLE
 let oldPlayer = null;
 
-function stopPlayer(player) {
-  player.pause();  // permet de recommencer la lecture du début
-  player.currentTime = 0;
-}
 
 const launchPlayer = (event) => {
   const playerId=`${event.target.id}-player`;
@@ -37,19 +33,29 @@ const launchPlayer = (event) => {
   }
   
   if (oldPlayer != currentPlayer) {
-    // arrête la lecture quand on reclique sur le carré
     if (currentPlayer.paused) {
       currentPlayer.play();
+      event.target.style.backgroundColor="cadetblue";
+      event.target.style.color="white";
+      
     } else if (!currentPlayer.paused) {
       stopPlayer(currentPlayer);
+        
     }
     oldPlayer = currentPlayer;
   }
 };
 
+function stopPlayer(player) {
+  player.pause();  // permet de recommencer la lecture du début
+  event.target.style.backgroundColor="rgb(196, 243, 245)"; 
+  event.target.style.color="black"; 
+  player.currentTime = 0;
+}
+
 const bindClick = function (currentButton){
   currentButton.onclick = launchPlayer;
-};
+  };
 
 boutons.forEach(bindClick);
 
