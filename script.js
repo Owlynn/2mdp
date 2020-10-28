@@ -14,23 +14,69 @@ document.getElementById('blocs').innerHTML = compiledHtml;
 const boutons = Array.from(document.getElementsByClassName("boutons"));
 
 // LANCE LA LECTURE QUAND ON CLIQUE SUR UN SAMPLE
+let oldPlayer = null;
 
+function stopPlayer(player) {
+  player.pause();  // permet de recommencer la lecture du début
+  player.currentTime = 0;
+}
 
+const launchPlayer = (event) => {
+  const playerId=`${event.target.id}-player`;
+  const currentPlayer = document.getElementById(playerId);
 
-boutons.forEach ( function (currentButton){
-  currentButton.onclick = (event) => {
-    const playerId=`${event.target.id}-player`;
-    const currentPlayer = document.getElementById(playerId)
+  if (oldPlayer == currentPlayer) {
+    stopPlayer(oldPlayer);
+    oldPlayer = null;
+    return ;
+  }
+
+  if (oldPlayer != null) {
+    stopPlayer(oldPlayer);
+    oldPlayer = null;
+  }
+  
+  if (oldPlayer != currentPlayer) {
     // arrête la lecture quand on reclique sur le carré
     if (currentPlayer.paused) {
       currentPlayer.play();
     } else if (!currentPlayer.paused) {
-      currentPlayer.currentTime = 0; // permet de recommencer la lecture du début
-      currentPlayer.pause();
+      stopPlayer(currentPlayer);
     }
-      }
+    oldPlayer = currentPlayer;
+  }
+};
 
-})
+const bindClick = function (currentButton){
+  currentButton.onclick = launchPlayer;
+};
 
-// ARRETE LA LECTURE DU PRECEDENT SAMPLE QUAND ON LANCE UN DEUXIEME
+boutons.forEach(bindClick);
 
+
+// const app = {
+//   currentPlayer : null,
+//   oldPlayer: null,
+//   futurePlayerList: [],
+  
+//   init: (param) => {
+//     this.listSamples = this.loadSamples();
+//   },
+
+//   onClick: () => {
+//     const player = getbyid();
+//     this.futurePlayerList.push(player);
+//   },
+
+//   loadSamples: () => {
+//     return [
+//       {
+//         id: ""
+
+//       }
+//       // ...
+//     ]
+//   }
+// }
+
+// app.init()
