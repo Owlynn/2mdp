@@ -10,14 +10,26 @@ const compiledHtml= template({samples});
 document.getElementById('blocs').innerHTML = compiledHtml;
 
 // BOUTONS INTERACTIFS
-// console.log(document.getElementsByClassName("trigger"));
 
 const boutons = Array.from(document.getElementsByClassName("boutons"));
+
+// LANCE LA LECTURE QUAND ON CLIQUE SUR UN SAMPLE
+
+
 
 boutons.forEach ( function (currentButton){
   currentButton.onclick = (event) => {
     const playerId=`${event.target.id}-player`;
-    document.getElementById(playerId).play();
-  }
+    const currentPlayer = document.getElementById(playerId)
+    // arrête la lecture quand on reclique sur le carré
+    if (currentPlayer.paused) {
+      currentPlayer.play();
+    } else if (!currentPlayer.paused) {
+      currentPlayer.pause();
+    }
+      }
 
 })
+
+// ARRETE LA LECTURE DU PRECEDENT SAMPLE QUAND ON LANCE UN DEUXIEME
+
