@@ -18,15 +18,16 @@ let oldPlayer = null;
 
 
 const launchPlayer = (event) => {
+  let oldButton = null;
   const playerId=`${event.target.id}-player`;
   const currentPlayer = document.getElementById(playerId);
-
+  
   if (oldPlayer == currentPlayer) {
     stopPlayer(oldPlayer);
     oldPlayer = null;
     return ;
   }
-
+  
   if (oldPlayer != null) {
     stopPlayer(oldPlayer);
     oldPlayer = null;
@@ -35,21 +36,19 @@ const launchPlayer = (event) => {
   if (oldPlayer != currentPlayer) {
     if (currentPlayer.paused) {
       currentPlayer.play();
-      event.target.style.backgroundColor="cadetblue";
-      event.target.style.color="white";
       
     } else if (!currentPlayer.paused) {
       stopPlayer(currentPlayer);
-        
+      
     }
+    
     oldPlayer = currentPlayer;
   }
+  
 };
 
 function stopPlayer(player) {
   player.pause();  // permet de recommencer la lecture du début
-  event.target.style.backgroundColor="rgb(196, 243, 245)"; 
-  event.target.style.color="black"; 
   player.currentTime = 0;
 }
 
