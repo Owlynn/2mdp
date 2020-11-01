@@ -10,38 +10,43 @@ const compiledHtml= template({samples});
 document.getElementById('blocs').innerHTML = compiledHtml;
 
 // BOUTONS INTERACTIFS
-
 const boutons = Array.from(document.getElementsByClassName("boutons"));
 
-// LANCE LA LECTURE QUAND ON CLIQUE SUR UN SAMPLE
+let oldButton = null;
 let oldPlayer = null;
 
-
+// LANCE LA LECTURE QUAND ON CLIQUE SUR UN SAMPLE
 const launchPlayer = (event) => {
-  let oldButton = null;
-  const playerId=`${event.target.id}-player`;
-  const currentPlayer = document.getElementById(playerId);
   
-  if (oldPlayer == currentPlayer) {
+  const currentButton = event.target;
+  const currentPlayer = document.getElementById(`${event.target.id}-player`);
+    
+  // si on a cliqué sur le même bouton
+  if (oldPlayer == currentPlayer && !oldPlayer.paused) {
     stopPlayer(oldPlayer);
     oldPlayer = null;
+    oldButton.classList.remove("playing");
     return ;
   }
   
-  if (oldPlayer != null) {
+  // si un lecteur est déjà en lecture
+  if (oldPlayer != null && !oldPlayer.paused) {
     stopPlayer(oldPlayer);
+    oldButton.classList.remove("playing");
     oldPlayer = null;
   }
   
+  // si le nouveau player est différent de l'ancien
   if (oldPlayer != currentPlayer) {
     if (currentPlayer.paused) {
       currentPlayer.play();
-      
-    } else if (!currentPlayer.paused) {
-      stopPlayer(currentPlayer);
-      
+      currentButton.classList.add("playing");
+      currentPlayer.addEventListener("ended", () => {
+        oldPlayer = null;
+        event.target.classList.remove("playing");
+      });
     }
-    
+    oldButton = currentButton;
     oldPlayer = currentPlayer;
   }
   
@@ -54,7 +59,7 @@ function stopPlayer(player) {
 
 const bindClick = function (currentButton){
   currentButton.onclick = launchPlayer;
-  };
+};
 
 boutons.forEach(bindClick);
 
