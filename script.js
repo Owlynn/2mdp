@@ -1,5 +1,3 @@
-// HANDLEBARS CONTEXT 
-
 // HANDLEBARS SETUP
 const templateElement = document.getElementById('hb');
 const templateSource = document.getElementById('hb').innerHTML;
@@ -12,49 +10,45 @@ document.getElementById('blocs').innerHTML = compiledHtml;
 // BOUTONS INTERACTIFS
 const boutons = Array.from(document.getElementsByClassName("boutons"));
 
-let oldButton = null;
-let oldPlayer = null;
+let currentButton = null;
+let currentPlayer = null;
+
+let newButton = null;
+let newPlayer = null
 
 // LANCE LA LECTURE QUAND ON CLIQUE SUR UN SAMPLE
 const launchPlayer = (event) => {
   
-  const currentButton = event.target;
-  const currentPlayer = document.getElementById(`${event.target.id}-player`);
+  newButton = event.target;
+  newPlayer = document.getElementById(`${newButton.id}-player`);
     
   // si on a cliqué sur le même bouton
-  if (oldPlayer == currentPlayer && !oldPlayer.paused) {
-    stopPlayer(oldPlayer);
-    oldPlayer = null;
-    oldButton.classList.remove("playing");
+  if (newPlayer == currentPlayer && !currentPlayer.paused) {
+    stopCurrentPlayer();
     return ;
   }
   
   // si un lecteur est déjà en lecture
-  if (oldPlayer != null && !oldPlayer.paused) {
-    stopPlayer(oldPlayer);
-    oldButton.classList.remove("playing");
-    oldPlayer = null;
+  if (currentPlayer != null) {
+    stopCurrentPlayer();
   }
   
   // si le nouveau player est différent de l'ancien
-  if (oldPlayer != currentPlayer) {
-    if (currentPlayer.paused) {
-      currentPlayer.play();
-      currentButton.classList.add("playing");
-      currentPlayer.addEventListener("ended", () => {
-        oldPlayer = null;
-        event.target.classList.remove("playing");
-      });
-    }
-    oldButton = currentButton;
-    oldPlayer = currentPlayer;
+  if (newPlayer != currentPlayer) {
+    newPlayer.play();
+    newButton.classList.add("playing");
+    newPlayer.addEventListener("ended", stopCurrentPlayer);
+    currentButton = newButton;
+    currentPlayer = newPlayer;
   }
   
 };
 
-function stopPlayer(player) {
-  player.pause();  // permet de recommencer la lecture du début
-  player.currentTime = 0;
+function stopCurrentPlayer() {
+  currentButton.classList.remove("playing");
+  currentPlayer.pause();
+  currentPlayer.currentTime = 0; // permet de recommencer la lecture du début
+  currentPlayer = null;
 }
 
 const bindClick = function (currentButton){
@@ -62,31 +56,3 @@ const bindClick = function (currentButton){
 };
 
 boutons.forEach(bindClick);
-
-
-// const app = {
-//   currentPlayer : null,
-//   oldPlayer: null,
-//   futurePlayerList: [],
-  
-//   init: (param) => {
-//     this.listSamples = this.loadSamples();
-//   },
-
-//   onClick: () => {
-//     const player = getbyid();
-//     this.futurePlayerList.push(player);
-//   },
-
-//   loadSamples: () => {
-//     return [
-//       {
-//         id: ""
-
-//       }
-//       // ...
-//     ]
-//   }
-// }
-
-// app.init()
