@@ -13,9 +13,8 @@
     <!-- HANDLEBARS TEMPLATE -->
     <script id="hb" type="text/x-handlebars-template">
         {{#each samples}}
-         <audio id = "son{{@index}}-player" src="samples/{{this.title}}.mp3"></audio>
-        <button class = "boutons" id="son{{@index}}"> {{this.title}} </button>
-        
+            <audio id = "son{{@index}}-player" src="samples/{{this}}.mp3"></audio>
+            <div class = "boutons button" id="son{{@index}}"> {{this}} </div>
         {{/each}}
     </script>
 

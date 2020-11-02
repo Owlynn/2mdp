@@ -1,35 +1,33 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    }
 
-button {
+.boutons {
     background-color: rgb(196, 243, 245);
-    margin: 1px;
-    width: auto;
-    height: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 3%;
-        
+    margin: 5px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    flex-grow: 1;   
 }
 
-button:hover{
+.boutons.playing {
     background-color: cadetblue;
+    color: white;
+}
+
+.boutons:hover{
+    background-color: cadetblue;
+    color: white;
 }
 
 #blocs{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 5%;
+    justify-content: space-between;
+    align-content: baseline;
+    padding: 5px;
     overflow: scroll;
     height: 100%;
     background-color: rgb(188, 223, 224);
     overflow-x: hidden;
-    
 }
 
 .row {
@@ -38,13 +36,11 @@ button:hover{
 }
 
 #deuxmin {
-   padding: 0 5%;
-   margin: 0 auto;
-   text-align: center;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   height: 100%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
 
 h1{
