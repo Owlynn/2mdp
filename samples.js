@@ -30,7 +30,6 @@ const samples = [
   "je veux m'occuper des R",
   "jingle 1",
   "jingle 2",
-  "la fuite",
   "la fuite-2",
   "la violence faite aux chevreuil",
   "rire 2",
