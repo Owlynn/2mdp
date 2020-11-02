@@ -21,6 +21,10 @@ const launchPlayer = (event) => {
   let oldButton = null;
   const playerId=`${event.target.id}-player`;
   const currentPlayer = document.getElementById(playerId);
+    
+  if (oldPlayer === currentPlayer && oldPlayer.paused) {
+    oldPlayer == null;
+  }
   
   if (oldPlayer == currentPlayer) {
     stopPlayer(oldPlayer);
