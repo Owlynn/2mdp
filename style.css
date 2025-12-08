@@ -108,18 +108,81 @@ p {
 /* ========================================
    BUTTONS CONTAINER
    ======================================== */
+#container-boutons {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
 #blocs {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
-    padding: 1.5rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    row-gap: 0.25rem;
+    padding: 1rem;
+    overflow: hidden;
+    flex: 1;
     background: linear-gradient(to bottom, var(--accent-dark) 0%, #a8d5d7 100%);
     position: relative;
-    scroll-behavior: smooth;
     align-items: start;
+    justify-content: start;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: linear-gradient(to bottom, var(--accent-dark) 0%, #a8d5d7 100%);
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.pagination-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.pagination-dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.pagination-dot.active {
+    background: var(--primary-color);
+    border-color: var(--primary-dark);
+    transform: scale(1.3);
+    box-shadow: 0 2px 8px rgba(95, 158, 160, 0.5);
+}
+
+/* Grands écrans - 5 boutons par ligne */
+@media (min-width: 1200px) {
+    #blocs {
+        grid-template-columns: repeat(5, 200px);
+        justify-content: start;
+    }
+}
+
+/* Écrans moyens-grands - 4 boutons par ligne */
+@media (min-width: 900px) and (max-width: 1199px) {
+    #blocs {
+        grid-template-columns: repeat(4, 200px);
+        justify-content: start;
+    }
+}
+
+/* Écrans moyens - 3 boutons par ligne */
+@media (min-width: 700px) and (max-width: 899px) {
+    #blocs {
+        grid-template-columns: repeat(3, 200px);
+        justify-content: start;
+    }
 }
 
 /* Scrollbar personnalisée */
@@ -148,10 +211,10 @@ p {
 .boutons {
     background: linear-gradient(145deg, #ffffff, var(--accent-color));
     border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
+    border-radius: 6px;
     margin: 0;
-    min-height: 80px;
-    height: auto;
+    width: 200px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,7 +223,7 @@ p {
     font-weight: 500;
     color: var(--primary-dark);
     text-align: center;
-    padding: 1rem 0.75rem;
+    padding: 0.75rem;
     cursor: pointer;
     user-select: none;
     box-shadow: 
@@ -175,32 +238,13 @@ p {
     overflow-wrap: break-word;
     line-height: 1.4;
     hyphens: auto;
-    max-width: 100%;
     box-sizing: border-box;
 }
 
-/* Effet de vague au survol */
-.boutons::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-    z-index: 0;
-    pointer-events: none;
-}
-
-.boutons:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
 /* Assure que le texte à l'intérieur du bouton respecte les limites */
+.boutons {
+    white-space: normal;
+}
 
 .boutons > * {
     position: relative;
@@ -208,6 +252,7 @@ p {
     max-width: 100%;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    white-space: normal;
 }
 
 /* État hover */
@@ -292,8 +337,8 @@ p {
    RESPONSIVE DESIGN
    ======================================== */
 
-/* Tablette */
-@media (max-width: 768px) {
+/* Tablette - 2 boutons par ligne */
+@media (min-width: 480px) and (max-width: 699px) {
     .row {
         flex-direction: column;
     }
@@ -312,20 +357,26 @@ p {
     }
     
     #blocs {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 0.75rem;
+        grid-template-columns: repeat(2, 200px);
+        gap: 0.5rem;
+        row-gap: 0.25rem;
         padding: 1rem;
+        justify-content: start;
     }
     
     .boutons {
-        min-height: 70px;
-        height: auto;
+        width: 200px;
+        height: 200px;
         padding: 0.75rem;
     }
 }
 
-/* Mobile */
-@media (max-width: 480px) {
+/* Mobile - 1 bouton par ligne */
+@media (max-width: 479px) {
+    .row {
+        flex-direction: column;
+    }
+    
     #deuxmin {
         padding: 1rem;
     }
@@ -340,25 +391,23 @@ p {
     }
     
     #blocs {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-columns: repeat(1, 1fr);
         gap: 0.5rem;
+        row-gap: 0.25rem;
         padding: 0.75rem;
+        justify-content: center;
     }
     
     .boutons {
-        min-height: 60px;
-        height: auto;
+        width: 100%;
+        max-width: 200px;
+        height: 200px;
         font-size: 0.75rem;
         padding: 0.5rem;
+        margin: 0 auto;
     }
 }
 
-/* Très petits écrans */
-@media (max-width: 320px) {
-    #blocs {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
 /* ========================================
    AMÉLIORATIONS ACCESSIBILITÉ
