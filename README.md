@@ -35,8 +35,18 @@ Ce projet est un sampler audio en ligne qui permet de jouer différents extraits
 
 ### Prérequis
 - Un navigateur web moderne (Chrome, Firefox, Edge, Safari)
+- Node.js et npm (pour la méthode avec npm)
 
-### Méthode 1 : Serveur local simple (Python)
+### Méthode 1 : Avec npm (recommandé)
+
+```bash
+# Lancer le serveur de développement
+npm run dev
+```
+
+Cela va automatiquement ouvrir votre navigateur à l'adresse `http://localhost:8000`
+
+### Méthode 2 : Serveur local simple (Python)
 
 ```bash
 # Python 3
@@ -48,7 +58,7 @@ python -m SimpleHTTPServer 8000
 
 Puis ouvrez votre navigateur à l'adresse : `http://localhost:8000`
 
-### Méthode 2 : Serveur local avec Node.js (http-server)
+### Méthode 3 : Serveur local avec Node.js (http-server)
 
 ```bash
 # Installation globale
@@ -58,7 +68,7 @@ npm install -g http-server
 http-server
 ```
 
-### Méthode 3 : Ouvrir directement
+### Méthode 4 : Ouvrir directement
 
 Vous pouvez simplement ouvrir `index.html` dans votre navigateur, mais certaines fonctionnalités audio peuvent ne pas fonctionner selon les politiques de sécurité du navigateur.
 
